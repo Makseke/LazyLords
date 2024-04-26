@@ -8,7 +8,7 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.test</groupId>
+    <groupId>com</groupId>
     <artifactId>LazyLord</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>LazyLords</name>
@@ -31,6 +31,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--   Database     -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>${lettuce.version}</version>
         </dependency>
     </dependencies>
 
