@@ -23,6 +23,6 @@ public class LobbyRepositoryImpl implements LobbyRepository {
 
     @Override
     public void save(Lobby lobby) {
-        redisTemplate.opsForValue().set(lobby.getId().toString(), lobby, 1L, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(lobby.getId().toString(), lobby, 30L, TimeUnit.MINUTES);
     }
 }

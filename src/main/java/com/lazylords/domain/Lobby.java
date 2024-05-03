@@ -19,6 +19,7 @@ public class Lobby implements Serializable {
     private static final long serialVersionUID = 7392250421493387063L;
 
     private UUID id;
+    private Integer size = 5;
     private HashMap<String, Player> players = new HashMap<>();
     private HashMap<Integer, Integer> desk = new HashMap<>();
 }

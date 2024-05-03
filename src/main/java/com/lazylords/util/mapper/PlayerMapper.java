@@ -7,7 +7,7 @@ public final class PlayerMapper {
     public static PlayerDetails toDetails(Player player) {
         PlayerDetails details = new PlayerDetails();
         details.setPlayerName(player.getName());
-        details.setAvatarId(1);
+        details.setAvatarId(player.getAvatarId());
         details.setPlayerType(player.getType());
         return details;
     }

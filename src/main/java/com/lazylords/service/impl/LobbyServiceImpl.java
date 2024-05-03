@@ -36,7 +36,7 @@ public class LobbyServiceImpl implements LobbyService {
             lobby = lobbyRepository.findById(lobbyId.toString()).orElseThrow(LobbyDontExistException::new);
             if (lobby.getPlayers().containsKey(playerName)) {
                 throw new PlayerAlreadyExistException();
-            } else if (lobby.getPlayers().values().size() > 5) {
+            } else if (lobby.getPlayers().values().size() == lobby.getSize()) {
                 throw new LobbyFullExceptionException();
             }
         } else {

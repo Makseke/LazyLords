@@ -21,6 +21,7 @@ public class Player implements Serializable {
 
     private String name;
     private Integer coins = 3;
+    private Integer avatarId;
     private PlayerType type;
     private HashMap<Integer, Integer> cards = new HashMap<>();
     private HashMap<Integer, Boolean> establishments = new HashMap<>();
