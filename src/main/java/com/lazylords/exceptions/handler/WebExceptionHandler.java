@@ -14,6 +14,7 @@ public class WebExceptionHandler {
     @ExceptionHandler(LazyLordsBaseException.class)
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     public ErrorResponseTO handleExternalDatabaseException(LazyLordsBaseException e) {
+        log.error(e.getMessage(), e);
         return new ErrorResponseTO("ERROR");
     }
 }

@@ -27,7 +27,7 @@ public class LobbyServiceImpl implements LobbyService {
     @Override
     @SneakyThrows
     public UUID join(String playerName, UUID lobbyId) {
-        log.info("login playerName / lobbyId: {} / {}", playerName, lobbyId);
+        log.info("join playerName / lobbyId: {} / {}", playerName, lobbyId);
         Lobby lobby = new Lobby();
         Player player = new Player();
         player.setName(playerName);
@@ -46,6 +46,15 @@ public class LobbyServiceImpl implements LobbyService {
         lobby.getPlayers().put(playerName, player);
         lobbyRepository.save(lobby);
         return lobbyId;
+    }
+
+    @Override
+    @SneakyThrows
+    public LobbyResponseTO leave(UUID lobbyId, String name) {
+        Lobby lobby = lobbyRepository.findById(lobbyId.toString()).orElseThrow(LobbyDontExistException::new);
+        lobby.getPlayers().remove(name);
+        lobbyRepository.save(lobby);
+        return new LobbyResponseTO(lobbyId, lobby.getPlayers().values().stream().map(PlayerMapper::toDetails).toList());
     }
 
     @Override
